@@ -2,63 +2,73 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
 
-  // GIVEN THIS PROBLEM:
 
+  //Given this problem: 
+  
   function firstItem(arr, cb) {
     // firstItem passes the first item of the given array to the callback function.
   }
 
-  // SOLUTION:
+  // Potential Solution:
 
+  // Higher order function using "cb" as the call back
   function firstItem(arr, cb) {
     return cb(arr[0]);
   }
 
-  // NOTES ON THE SOLUTION:
-
-  // firstItem is a higher order function.
-  // It expects a callback (referred to as `cb`) as its second argument.
-  // To test our solution, we can use the given `items` array and a variety of callbacks.
-  // Note how callbacks can be declared separately, or inlined.
-
-  // TEST 1 (inlined callback):
-
-  const test1 = firstItem(items, item => `I love my ${item}!`);
-  console.log(test1); // "I love my Pencil!"
-
-  // TEST 2 (declaring callback before hand):
-
-  function logExorbitantPrice(article) {
-    return `this ${article} is worth a million dollars!`;
-  };
-
-  const test2 = firstItem(items, logExorbitantPrice);
-  console.log(test2); // "this Pencil is worth a million dollars!"
-*/
-
+  // Function invocation 
+  firstItem(items, function(first) {
+    console.log(first)
+  });
 
 function getLength(arr, cb) {
+    return cb(items.length);
   // getLength passes the length of the array into the callback.
 }
 
+getLength(items, function(length){
+  console.log(length)
+});
+
 function last(arr, cb) {
+  return cb(arr[3]);
   // last passes the last item of the array into the callback.
 }
 
+last(items, function(last){
+  console.log(last);
+})
+
 function sumNums(x, y, cb) {
+  return cb(x + y);
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
 
+sumNums(8, 12, function(sum){
+  console.log(sum)
+});
+
 function multiplyNums(x, y, cb) {
+  return cb(x * y);
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
 
-function contains(item, list, cb) {
+multiplyNums(8, 12, function(multiply){
+console.log(multiply)
+});
+
+function contains(item, list) {
+      console.log(list.indexOf(item) !== -1);
+    // return );
+   
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 }
+
+contains("Gum", items, function(){
+  
+});
 
 /* STRETCH PROBLEM */
 
